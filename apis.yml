@@ -1,10 +1,12 @@
+aid: webflux
 name: Spring WebFlux APIs
 description: Collection of APIs and resources for Spring WebFlux reactive web framework
-image: https://spring.io/img/spring-logo.svg
-created: 2024-01-01 00:00:00+00:00
-modified: 2024-01-01 00:00:00+00:00
-specificationVersion: '0.18'
-url: https://spring.io/reactive
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+created: '2024-01-01'
+modified: '2026-03-16'
+specificationVersion: '0.19'
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/webflux/refs/heads/main/apis.yml
 apis:
 - name: Spring WebFlux Core API
   description: Reactive web framework for building non-blocking applications
@@ -101,9 +103,8 @@ common:
 - type: YouTube
   url: https://www.youtube.com/user/SpringSourceDev
 maintainers:
-- FN: Spring Team
-  email: spring-team@vmware.com
-  url: https://spring.io/team
+  - FN: Kin Lane
+    email: kin@apievangelist.com
 tags:
 - Reactive Programming
 - Spring Framework
