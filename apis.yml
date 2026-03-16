@@ -1,5 +1,5 @@
 aid: webflux
-name: Spring WebFlux APIs
+name: Spring WebFlux
 description: Collection of APIs and resources for Spring WebFlux reactive web framework
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 created: '2024-01-01'
