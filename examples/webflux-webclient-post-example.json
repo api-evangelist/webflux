@@ -1,0 +1,33 @@
+{
+  "title": "Spring WebFlux WebClient POST Request Example",
+  "description": "Example of a WebClient POST request creating a new resource",
+  "request": {
+    "method": "POST",
+    "uri": "https://api.example.com/v1/users",
+    "headers": {
+      "Content-Type": "application/json",
+      "Accept": "application/json",
+      "Authorization": "Bearer eyJhbGciOiJSUzI1NiJ9..."
+    },
+    "body": {
+      "name": "Alice Johnson",
+      "email": "alice@example.com",
+      "role": "EDITOR"
+    }
+  },
+  "response": {
+    "statusCode": 201,
+    "headers": {
+      "Content-Type": "application/json",
+      "Location": "https://api.example.com/v1/users/usr_789"
+    },
+    "body": {
+      "id": "usr_789",
+      "name": "Alice Johnson",
+      "email": "alice@example.com",
+      "role": "EDITOR",
+      "createdAt": "2026-05-03T12:00:00Z"
+    }
+  },
+  "javaCode": "webClient.post()\n    .uri(\"/v1/users\")\n    .contentType(MediaType.APPLICATION_JSON)\n    .bodyValue(newUser)\n    .retrieve()\n    .bodyToMono(User.class)"
+}

@@ -1,0 +1,225 @@
+asyncapi: 3.0.0
+info:
+  title: Spring WebFlux WebSocket API
+  version: 6.2.0
+  description: >-
+    AsyncAPI specification describing WebSocket communication patterns for
+    Spring WebFlux applications. Spring WebFlux provides reactive WebSocket
+    support via WebSocketHandler and WebSocketSession, enabling full-duplex,
+    bidirectional messaging between clients and servers.
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  externalDocs:
+    url: https://docs.spring.io/spring-framework/reference/web/webflux-websocket.html
+    description: Spring WebFlux WebSocket Documentation
+
+servers:
+  production:
+    host: '{host}:{port}'
+    protocol: ws
+    description: Spring WebFlux WebSocket endpoint
+    variables:
+      host:
+        default: localhost
+        description: Application host
+      port:
+        default: '8080'
+        description: Application port
+  secure:
+    host: '{host}:{port}'
+    protocol: wss
+    description: Secure Spring WebFlux WebSocket endpoint (TLS)
+    variables:
+      host:
+        default: localhost
+        description: Application host
+      port:
+        default: '8443'
+        description: Application port
+
+channels:
+  websocketSession:
+    address: /ws
+    description: >-
+      WebSocket channel mapped via Spring WebFlux WebSocketHandlerAdapter.
+      A WebSocketSession is established on connection and provides reactive
+      inbound() and outbound() message streams.
+    messages:
+      textMessage:
+        $ref: '#/components/messages/TextMessage'
+      binaryMessage:
+        $ref: '#/components/messages/BinaryMessage'
+      pingMessage:
+        $ref: '#/components/messages/PingMessage'
+      pongMessage:
+        $ref: '#/components/messages/PongMessage'
+      closeMessage:
+        $ref: '#/components/messages/CloseMessage'
+
+  stompBroker:
+    address: /stomp
+    description: >-
+      STOMP over WebSocket channel. Spring WebFlux integrates with STOMP messaging
+      protocol for topic subscriptions, queued messages, and message broker relay.
+    messages:
+      stompMessage:
+        $ref: '#/components/messages/StompMessage'
+
+operations:
+  sendTextMessage:
+    action: send
+    channel:
+      $ref: '#/channels/websocketSession'
+    summary: Send Text Message
+    description: >-
+      Client sends a text message over the WebSocket connection.
+      In Spring WebFlux, this corresponds to WebSocketSession.send(publisher).
+    messages:
+      - $ref: '#/components/messages/TextMessage'
+
+  receiveTextMessage:
+    action: receive
+    channel:
+      $ref: '#/channels/websocketSession'
+    summary: Receive Text Message
+    description: >-
+      Server receives a text message from the client.
+      In Spring WebFlux, WebSocketSession.receive() returns a Flux<WebSocketMessage>.
+    messages:
+      - $ref: '#/components/messages/TextMessage'
+
+  sendBinaryMessage:
+    action: send
+    channel:
+      $ref: '#/channels/websocketSession'
+    summary: Send Binary Message
+    description: Send a binary data frame over the WebSocket connection.
+    messages:
+      - $ref: '#/components/messages/BinaryMessage'
+
+  receiveBinaryMessage:
+    action: receive
+    channel:
+      $ref: '#/channels/websocketSession'
+    summary: Receive Binary Message
+    description: Receive a binary data frame from the WebSocket connection.
+    messages:
+      - $ref: '#/components/messages/BinaryMessage'
+
+  subscribeToTopic:
+    action: send
+    channel:
+      $ref: '#/channels/stompBroker'
+    summary: Subscribe to Topic
+    description: STOMP SUBSCRIBE frame to subscribe to a topic or queue.
+    messages:
+      - $ref: '#/components/messages/StompMessage'
+
+  receiveTopicMessage:
+    action: receive
+    channel:
+      $ref: '#/channels/stompBroker'
+    summary: Receive Topic Message
+    description: Receive a STOMP MESSAGE frame from a subscribed topic.
+    messages:
+      - $ref: '#/components/messages/StompMessage'
+
+components:
+  messages:
+    TextMessage:
+      name: TextMessage
+      title: WebSocket Text Message
+      summary: A UTF-8 encoded text data frame (opcode 0x1)
+      contentType: text/plain
+      payload:
+        $ref: '#/components/schemas/TextPayload'
+
+    BinaryMessage:
+      name: BinaryMessage
+      title: WebSocket Binary Message
+      summary: A binary data frame (opcode 0x2)
+      contentType: application/octet-stream
+      payload:
+        $ref: '#/components/schemas/BinaryPayload'
+
+    PingMessage:
+      name: PingMessage
+      title: WebSocket Ping Frame
+      summary: A control ping frame (opcode 0x9) for keep-alive
+      payload:
+        $ref: '#/components/schemas/ControlPayload'
+
+    PongMessage:
+      name: PongMessage
+      title: WebSocket Pong Frame
+      summary: A control pong frame (opcode 0xA) in response to ping
+      payload:
+        $ref: '#/components/schemas/ControlPayload'
+
+    CloseMessage:
+      name: CloseMessage
+      title: WebSocket Close Frame
+      summary: A control close frame (opcode 0x8) to initiate connection closure
+      payload:
+        $ref: '#/components/schemas/ClosePayload'
+
+    StompMessage:
+      name: StompMessage
+      title: STOMP Frame
+      summary: A STOMP protocol frame for topic messaging over WebSocket
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/StompPayload'
+
+  schemas:
+    TextPayload:
+      type: object
+      properties:
+        content:
+          type: string
+          description: UTF-8 text content of the message
+        sessionId:
+          type: string
+          description: WebSocketSession identifier
+
+    BinaryPayload:
+      type: object
+      properties:
+        data:
+          type: string
+          format: binary
+          description: Binary data content
+
+    ControlPayload:
+      type: object
+      properties:
+        applicationData:
+          type: string
+          description: Optional application data in control frame
+
+    ClosePayload:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          description: RFC 6455 close status code (e.g. 1000 Normal Closure)
+        reason:
+          type: string
+          description: Human-readable reason for closure
+
+    StompPayload:
+      type: object
+      properties:
+        command:
+          type: string
+          enum: [CONNECT, CONNECTED, SUBSCRIBE, UNSUBSCRIBE, SEND, MESSAGE, ACK, NACK, DISCONNECT, ERROR]
+          description: STOMP command
+        headers:
+          type: object
+          additionalProperties:
+            type: string
+          description: STOMP frame headers
+        body:
+          type: string
+          description: STOMP frame body

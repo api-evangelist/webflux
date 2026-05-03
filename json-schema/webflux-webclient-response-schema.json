@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/webflux/json-schema/webflux-webclient-response-schema.json",
+  "title": "Spring WebFlux WebClient Response",
+  "description": "JSON Schema representing a Spring WebFlux WebClient HTTP response including status, headers, and body.",
+  "type": "object",
+  "properties": {
+    "statusCode": {
+      "type": "integer",
+      "minimum": 100,
+      "maximum": 599,
+      "description": "HTTP response status code"
+    },
+    "statusCodeValue": {
+      "type": "integer",
+      "description": "Numeric HTTP status code value"
+    },
+    "headers": {
+      "type": "object",
+      "additionalProperties": {
+        "oneOf": [
+          {"type": "string"},
+          {"type": "array", "items": {"type": "string"}}
+        ]
+      },
+      "description": "HTTP response headers"
+    },
+    "cookies": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "name": {"type": "string"},
+          "value": {"type": "string"},
+          "domain": {"type": "string"},
+          "path": {"type": "string"},
+          "maxAge": {"type": "integer"},
+          "secure": {"type": "boolean"},
+          "httpOnly": {"type": "boolean"}
+        }
+      },
+      "description": "Response cookies"
+    },
+    "body": {
+      "description": "Response body deserialized to target type",
+      "oneOf": [
+        {"type": "object"},
+        {"type": "array"},
+        {"type": "string"},
+        {"type": "null"}
+      ]
+    },
+    "rawBody": {
+      "type": "string",
+      "format": "binary",
+      "description": "Raw response body bytes"
+    }
+  },
+  "required": ["statusCode", "headers"]
+}

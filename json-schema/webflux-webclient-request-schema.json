@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/webflux/json-schema/webflux-webclient-request-schema.json",
+  "title": "Spring WebFlux WebClient Request",
+  "description": "JSON Schema representing a Spring WebFlux WebClient HTTP request configuration including URI, method, headers, and body.",
+  "type": "object",
+  "properties": {
+    "method": {
+      "type": "string",
+      "enum": ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
+      "description": "HTTP method for the request"
+    },
+    "uri": {
+      "type": "string",
+      "format": "uri",
+      "description": "Target URI for the HTTP request"
+    },
+    "baseUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "Base URL configured on the WebClient instance"
+    },
+    "headers": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "HTTP request headers as key-value pairs",
+      "examples": [
+        {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+          "Authorization": "Bearer token"
+        }
+      ]
+    },
+    "queryParams": {
+      "type": "object",
+      "additionalProperties": {
+        "oneOf": [
+          {"type": "string"},
+          {"type": "array", "items": {"type": "string"}}
+        ]
+      },
+      "description": "Query parameters to append to the URI"
+    },
+    "pathVariables": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "URI template path variable substitutions"
+    },
+    "body": {
+      "description": "Request body - can be any JSON value, byte array, or reactive publisher",
+      "oneOf": [
+        {"type": "object"},
+        {"type": "array"},
+        {"type": "string"},
+        {"type": "null"}
+      ]
+    },
+    "cookies": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "HTTP cookies to include in the request"
+    },
+    "timeout": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Request timeout in milliseconds"
+    },
+    "attributes": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Request-scoped attributes accessible in filters and handlers"
+    }
+  },
+  "required": ["method", "uri"]
+}

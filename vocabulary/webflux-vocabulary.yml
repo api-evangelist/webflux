@@ -1,0 +1,198 @@
+aid: webflux
+name: Spring WebFlux Vocabulary
+description: >-
+  Vocabulary and terminology for Spring WebFlux, the reactive-stack web framework
+  in the Spring ecosystem. This vocabulary covers reactive programming concepts,
+  WebFlux components, and related Spring integration terms.
+modified: '2026-05-03'
+terms:
+
+  - term: Backpressure
+    definition: >-
+      A mechanism in Reactive Streams that allows a subscriber to signal to a publisher
+      how many elements it is ready to process, preventing the subscriber from being
+      overwhelmed. WebFlux uses Project Reactor which implements backpressure natively.
+    tags:
+      - Core Concept
+      - Reactive Streams
+
+  - term: DispatcherHandler
+    definition: >-
+      The central dispatcher for HTTP request handling in Spring WebFlux. It discovers
+      registered handlers and delegates requests to handler mappings, invoking the
+      appropriate handler adapter, and returns the resulting response.
+    tags:
+      - Component
+      - Request Handling
+
+  - term: Flux
+    definition: >-
+      A Project Reactor Publisher type that emits 0 to N elements asynchronously.
+      Used in WebFlux for streaming responses, list operations, and reactive collections.
+      Equivalent to a reactive List<T> or Stream<T>.
+    tags:
+      - Core Concept
+      - Project Reactor
+      - Reactive Types
+
+  - term: HandlerFunction
+    definition: >-
+      A functional interface in WebFlux's functional routing model that takes a
+      ServerRequest and returns Mono<ServerResponse>. Used with RouterFunction as
+      an alternative to annotated @Controller classes.
+    tags:
+      - Component
+      - Functional Endpoints
+
+  - term: HandlerMapping
+    definition: >-
+      A strategy for mapping a request to handler objects. WebFlux provides
+      RequestMappingHandlerMapping (for @Controller classes) and
+      RouterFunctionMapping (for functional endpoints).
+    tags:
+      - Component
+      - Request Handling
+
+  - term: Mono
+    definition: >-
+      A Project Reactor Publisher type that emits 0 or 1 element asynchronously.
+      Used in WebFlux for single-value responses such as retrieving a single entity
+      by ID. Equivalent to a reactive Optional<T> or CompletableFuture<T>.
+    tags:
+      - Core Concept
+      - Project Reactor
+      - Reactive Types
+
+  - term: Non-Blocking IO
+    definition: >-
+      An I/O model where threads are not blocked waiting for I/O operations to complete.
+      WebFlux runs on Netty and reactive Servlet containers using event loops that handle
+      thousands of concurrent connections with a small fixed thread pool.
+    tags:
+      - Core Concept
+      - Performance
+
+  - term: Project Reactor
+    definition: >-
+      The reactive library at the core of Spring WebFlux. Implements the Reactive Streams
+      specification and provides Mono and Flux publisher types with rich operator APIs
+      for composing asynchronous sequences.
+    tags:
+      - Core Concept
+      - Library
+
+  - term: Reactive Streams
+    definition: >-
+      A standard specification for asynchronous stream processing with non-blocking
+      backpressure, implemented in Java 9 as java.util.concurrent.Flow. WebFlux is
+      built on this specification via Project Reactor.
+    tags:
+      - Core Concept
+      - Specification
+
+  - term: RouterFunction
+    definition: >-
+      A functional interface for routing HTTP requests in WebFlux's functional programming
+      model. RouterFunctions are composed with RequestPredicates and return HandlerFunctions.
+      Alternative to @RequestMapping annotations.
+    tags:
+      - Component
+      - Functional Endpoints
+
+  - term: RSocket
+    definition: >-
+      A binary application-level protocol providing reactive, message-driven communication
+      supporting request-response, fire-and-forget, request-stream, and bidirectional
+      channel interaction models. Spring Framework integrates RSocket alongside WebFlux.
+    tags:
+      - Protocol
+      - Streaming
+
+  - term: ServerRequest
+    definition: >-
+      Represents an HTTP request in WebFlux's functional endpoints model. Provides
+      access to method, URI, headers, cookies, body, and attributes. Used as input
+      to HandlerFunction.
+    tags:
+      - Component
+      - Functional Endpoints
+
+  - term: ServerResponse
+    definition: >-
+      Represents an HTTP response in WebFlux's functional endpoints model. Built via
+      a fluent builder API to set status code, headers, cookies, and body. Returned
+      as Mono<ServerResponse> from HandlerFunction.
+    tags:
+      - Component
+      - Functional Endpoints
+
+  - term: WebClient
+    definition: >-
+      The non-blocking, reactive HTTP client in Spring WebFlux. Replaces the deprecated
+      RestTemplate for reactive applications. Supports full HTTP lifecycle including
+      filters, error handling, streaming, and both retrieve() and exchange() patterns.
+    tags:
+      - Component
+      - HTTP Client
+
+  - term: WebFlux
+    definition: >-
+      Short for Spring WebFlux — the reactive-stack web framework in Spring Framework 5+.
+      Provides a fully non-blocking, event-driven alternative to Spring MVC for building
+      reactive REST APIs, WebSocket handlers, and server-sent event streams.
+    tags:
+      - Core Concept
+      - Framework
+
+  - term: WebSocketHandler
+    definition: >-
+      Interface implemented by classes that handle WebSocket connections in WebFlux.
+      Receives a WebSocketSession and returns a Mono<Void> representing the completion
+      of the session lifecycle.
+    tags:
+      - Component
+      - WebSocket
+
+  - term: WebSocketSession
+    definition: >-
+      Represents an active WebSocket connection in WebFlux. Provides reactive
+      inbound() Flux<WebSocketMessage> and send() method accepting a Publisher of messages.
+    tags:
+      - Component
+      - WebSocket
+
+  - term: WebTestClient
+    definition: >-
+      A test client for Spring WebFlux server endpoints supporting both binding
+      directly to the application context (without a real server) and connecting
+      to an actual running server for end-to-end integration testing.
+    tags:
+      - Component
+      - Testing
+
+  - term: Server-Sent Events
+    definition: >-
+      A server push technology where a server can send data to a browser client
+      over a single HTTP connection. WebFlux supports SSE natively by returning
+      Flux<ServerSentEvent> from controller methods.
+    tags:
+      - Feature
+      - Streaming
+
+  - term: Netty
+    definition: >-
+      The default embedded server runtime for Spring WebFlux applications (via Spring Boot).
+      An asynchronous, event-driven network application framework optimized for high-throughput
+      non-blocking workloads. Alternative to Servlet containers.
+    tags:
+      - Runtime
+      - Server
+
+  - term: R2DBC
+    definition: >-
+      Reactive Relational Database Connectivity — a specification and set of drivers for
+      reactive, non-blocking access to relational databases. The reactive database complement
+      to JDBC, commonly used with Spring WebFlux and Spring Data R2DBC.
+    tags:
+      - Database
+      - Reactive

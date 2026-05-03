@@ -1,0 +1,152 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "webflux": "https://spring.io/projects/spring-framework/webflux#",
+    "schema": "https://schema.org/",
+    "reactor": "https://projectreactor.io/docs/core/release/api/reactor/core/publisher/",
+    "rfc": "https://tools.ietf.org/html/",
+
+    "WebFluxApplication": {
+      "@id": "webflux:WebFluxApplication",
+      "@type": "@id",
+      "description": "A Spring Boot application using the WebFlux reactive stack"
+    },
+
+    "ReactiveWebServerFactory": {
+      "@id": "webflux:ReactiveWebServerFactory",
+      "@type": "@id",
+      "description": "Factory for creating reactive web servers (Netty, Tomcat, Undertow, Jetty)"
+    },
+
+    "WebClient": {
+      "@id": "webflux:WebClient",
+      "@type": "@id",
+      "description": "Non-blocking HTTP client for consuming REST services reactively"
+    },
+
+    "WebSocketHandler": {
+      "@id": "webflux:WebSocketHandler",
+      "@type": "@id",
+      "description": "Handler for WebSocket connections in Spring WebFlux"
+    },
+
+    "WebSocketSession": {
+      "@id": "webflux:WebSocketSession",
+      "@type": "@id",
+      "description": "Represents an active WebSocket session with reactive inbound/outbound streams"
+    },
+
+    "RouterFunction": {
+      "@id": "webflux:RouterFunction",
+      "@type": "@id",
+      "description": "Functional routing configuration composed of route predicates and handler functions"
+    },
+
+    "HandlerFunction": {
+      "@id": "webflux:HandlerFunction",
+      "@type": "@id",
+      "description": "Function that handles an incoming ServerRequest and returns a Mono<ServerResponse>"
+    },
+
+    "DispatcherHandler": {
+      "@id": "webflux:DispatcherHandler",
+      "@type": "@id",
+      "description": "Central request dispatcher for WebFlux (analogous to DispatcherServlet in Spring MVC)"
+    },
+
+    "Mono": {
+      "@id": "reactor:Mono",
+      "@type": "@id",
+      "description": "Reactive publisher emitting 0 or 1 element (Project Reactor)"
+    },
+
+    "Flux": {
+      "@id": "reactor:Flux",
+      "@type": "@id",
+      "description": "Reactive publisher emitting 0 to N elements (Project Reactor)"
+    },
+
+    "ServerRequest": {
+      "@id": "webflux:ServerRequest",
+      "@type": "@id",
+      "description": "Represents an HTTP server request in the functional endpoints model"
+    },
+
+    "ServerResponse": {
+      "@id": "webflux:ServerResponse",
+      "@type": "@id",
+      "description": "Represents an HTTP server response in the functional endpoints model"
+    },
+
+    "method": {
+      "@id": "schema:httpMethod",
+      "@type": "xsd:string",
+      "description": "HTTP method (GET, POST, PUT, PATCH, DELETE)"
+    },
+
+    "uri": {
+      "@id": "schema:url",
+      "@type": "@id",
+      "description": "Target URI"
+    },
+
+    "headers": {
+      "@id": "webflux:headers",
+      "@type": "@id",
+      "description": "HTTP headers collection"
+    },
+
+    "statusCode": {
+      "@id": "schema:httpStatusCode",
+      "@type": "xsd:integer",
+      "description": "HTTP status code"
+    },
+
+    "body": {
+      "@id": "schema:object",
+      "description": "HTTP message body"
+    },
+
+    "timeout": {
+      "@id": "schema:Duration",
+      "@type": "xsd:integer",
+      "description": "Timeout duration in milliseconds"
+    },
+
+    "sessionId": {
+      "@id": "webflux:sessionId",
+      "@type": "xsd:string",
+      "description": "WebSocket session identifier"
+    },
+
+    "backpressure": {
+      "@id": "webflux:backpressure",
+      "@type": "xsd:boolean",
+      "description": "Whether backpressure is applied to the reactive stream"
+    },
+
+    "ReactiveStreams": {
+      "@id": "https://www.reactive-streams.org/",
+      "@type": "@id",
+      "description": "Reactive Streams specification for asynchronous stream processing"
+    },
+
+    "RSocket": {
+      "@id": "https://rsocket.io/",
+      "@type": "@id",
+      "description": "Binary application protocol for reactive binary communication"
+    },
+
+    "WebFluxConfig": {
+      "@id": "webflux:WebFluxConfig",
+      "@type": "@id",
+      "description": "Configuration class for customizing WebFlux behavior"
+    },
+
+    "WebTestClient": {
+      "@id": "webflux:WebTestClient",
+      "@type": "@id",
+      "description": "Client for testing WebFlux server endpoints in integration tests"
+    }
+  }
+}

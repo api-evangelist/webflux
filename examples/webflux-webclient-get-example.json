@@ -1,0 +1,45 @@
+{
+  "title": "Spring WebFlux WebClient GET Request Example",
+  "description": "Example of a WebClient GET request retrieving a list of resources from a REST API",
+  "request": {
+    "method": "GET",
+    "uri": "https://api.example.com/v1/users",
+    "headers": {
+      "Accept": "application/json",
+      "Authorization": "Bearer eyJhbGciOiJSUzI1NiJ9..."
+    },
+    "queryParams": {
+      "page": "0",
+      "size": "20",
+      "sort": "createdAt,desc"
+    }
+  },
+  "response": {
+    "statusCode": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "X-Total-Count": "100"
+    },
+    "body": {
+      "content": [
+        {
+          "id": "usr_123",
+          "name": "Jane Doe",
+          "email": "jane@example.com",
+          "createdAt": "2026-01-15T10:30:00Z"
+        },
+        {
+          "id": "usr_456",
+          "name": "John Smith",
+          "email": "john@example.com",
+          "createdAt": "2026-01-14T09:00:00Z"
+        }
+      ],
+      "totalElements": 100,
+      "totalPages": 5,
+      "number": 0,
+      "size": 20
+    }
+  },
+  "javaCode": "webClient.get()\n    .uri(\"/v1/users?page=0&size=20&sort=createdAt,desc\")\n    .header(HttpHeaders.AUTHORIZATION, \"Bearer \" + token)\n    .retrieve()\n    .bodyToFlux(User.class)"
+}

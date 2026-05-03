@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/webflux/json-schema/webflux-router-function-schema.json",
+  "title": "Spring WebFlux Router Function Configuration",
+  "description": "JSON Schema representing the structure of a Spring WebFlux RouterFunction route configuration, describing functional endpoints.",
+  "type": "object",
+  "properties": {
+    "routes": {
+      "type": "array",
+      "description": "List of route definitions composed into a RouterFunction",
+      "items": {
+        "type": "object",
+        "properties": {
+          "method": {
+            "type": "string",
+            "enum": ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
+            "description": "HTTP method predicate"
+          },
+          "path": {
+            "type": "string",
+            "description": "URI path pattern (supports template variables like {id})"
+          },
+          "contentType": {
+            "type": "string",
+            "description": "Content-Type request predicate (e.g., application/json)"
+          },
+          "accept": {
+            "type": "string",
+            "description": "Accept header predicate"
+          },
+          "handler": {
+            "type": "string",
+            "description": "Handler function bean name or class reference"
+          },
+          "filters": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "List of handler filter functions applied to this route"
+          },
+          "attributes": {
+            "type": "object",
+            "additionalProperties": true,
+            "description": "Custom attributes on the route for documentation or metadata"
+          }
+        },
+        "required": ["method", "path", "handler"]
+      }
+    },
+    "basePath": {
+      "type": "string",
+      "description": "Common base path prefix for all routes in this router"
+    },
+    "filters": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Global filters applied to all routes in this router"
+    }
+  },
+  "required": ["routes"]
+}

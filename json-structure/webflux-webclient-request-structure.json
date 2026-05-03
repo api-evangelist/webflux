@@ -1,0 +1,67 @@
+{
+  "title": "Spring WebFlux WebClient Request Structure",
+  "description": "Structure documentation for Spring WebFlux WebClient HTTP request configuration.",
+  "type": "object",
+  "fields": [
+    {
+      "name": "method",
+      "type": "string",
+      "required": true,
+      "description": "HTTP method (GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS)"
+    },
+    {
+      "name": "uri",
+      "type": "string",
+      "required": true,
+      "description": "Target URI for the HTTP request"
+    },
+    {
+      "name": "baseUrl",
+      "type": "string",
+      "required": false,
+      "description": "Base URL configured on the WebClient instance"
+    },
+    {
+      "name": "headers",
+      "type": "object",
+      "required": false,
+      "description": "HTTP request headers as key-value pairs"
+    },
+    {
+      "name": "queryParams",
+      "type": "object",
+      "required": false,
+      "description": "Query parameters to append to the URI"
+    },
+    {
+      "name": "pathVariables",
+      "type": "object",
+      "required": false,
+      "description": "URI template path variable substitutions"
+    },
+    {
+      "name": "body",
+      "type": "any",
+      "required": false,
+      "description": "Request body (object, array, string, or null)"
+    },
+    {
+      "name": "cookies",
+      "type": "object",
+      "required": false,
+      "description": "HTTP cookies to include in the request"
+    },
+    {
+      "name": "timeout",
+      "type": "integer",
+      "required": false,
+      "description": "Request timeout in milliseconds"
+    },
+    {
+      "name": "attributes",
+      "type": "object",
+      "required": false,
+      "description": "Request-scoped attributes accessible in filters and handlers"
+    }
+  ]
+}
