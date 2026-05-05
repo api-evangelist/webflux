@@ -1,0 +1,13 @@
+{
+  "repo": "webflux",
+  "feeds": [
+    {
+      "source": "https://spring.io/blog/category/engineering",
+      "feed_url": "https://spring.io/blog.atom",
+      "saved": 4,
+      "title": "Spring"
+    }
+  ],
+  "post_count": 4,
+  "fetched": "2026-05-03T23:38:09Z"
+}
