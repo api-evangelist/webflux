@@ -204,7 +204,7 @@ common:
     url: https://www.youtube.com/user/SpringSourceDev
   - type: Maven Repository
     url: https://mvnrepository.com/artifact/org.springframework/spring-webflux
-  - type: Releases
+  - type: ReleaseNotes
     url: https://github.com/spring-projects/spring-framework/releases
   - type: ChangeLog
     url: https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-Versions
