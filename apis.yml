@@ -6,6 +6,18 @@ description: >-
   using the Reactive Streams API with Project Reactor. WebFlux supports annotated
   controllers, functional routing endpoints, WebSocket communication, RSocket protocol,
   and a powerful reactive HTTP client (WebClient) for consuming APIs.
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
 image: https://spring.io/img/projects/spring-framework.svg
 created: '2024-01-01'
 modified: '2026-05-03'
