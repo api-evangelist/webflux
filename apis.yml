@@ -200,6 +200,9 @@ apis:
         url: https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/test/web/reactive/server/WebTestClient.html
 
 common:
+  - type: License
+    name: Apache-2.0
+    url: https://github.com/spring-projects/spring-framework/blob/main/LICENSE
   - type: Blog
     url: https://spring.io/blog/category/engineering
   - type: Support
