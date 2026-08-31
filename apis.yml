@@ -77,6 +77,12 @@ apis:
       - Non-Blocking
       - Reactive
       - REST
+      - Web-Client
+    tags_raw:
+      - HTTP Client
+      - Non-Blocking
+      - Reactive
+      - REST
       - WebClient
     properties:
       - type: Documentation
