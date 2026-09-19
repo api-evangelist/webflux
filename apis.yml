@@ -170,6 +170,12 @@ apis:
       - Mono
       - Project Reactor
       - Reactive Streams
+      - Reactors
+    tags_raw:
+      - Flux
+      - Mono
+      - Project Reactor
+      - Reactive Streams
       - Reactor
     properties:
       - type: Documentation
