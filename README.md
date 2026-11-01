@@ -66,79 +66,121 @@
 
 Spring WebFlux is a fully non-blocking, reactive-stack web framework built into Spring Framework 5.0+. It enables building highly scalable, asynchronous web applications using the Reactive Streams API with Project Reactor. WebFlux supports annotated controllers, functional routing endpoints, WebSocket communication, RSocket protocol, and a powerful reactive HTTP client (WebClient) for consuming APIs.
 
-**Type:** Open Source Framework
-**Language:** Java
-**License:** Apache 2.0
-**GitHub:** [spring-projects/spring-framework](https://github.com/spring-projects/spring-framework)
-**Documentation:** [Spring WebFlux Reference](https://docs.spring.io/spring-framework/reference/web/webflux.html)
+**Areas:** Java · Microservices · Non-Blocking IO · Reactive Programming · REST API · Spring Boot · Spring Framework · WebFlux · Real-Time
 
-## APIs
+## Spring WebFlux on APIs.io
 
-| API | Description |
-|-----|-------------|
-| [Spring WebFlux Core](https://docs.spring.io/spring-framework/reference/web/webflux.html) | Reactive web framework with annotated controllers and functional endpoints |
-| [WebClient](https://docs.spring.io/spring-framework/reference/web/webflux-webclient.html) | Non-blocking reactive HTTP client |
-| [Router Functions](https://docs.spring.io/spring-framework/reference/web/webflux-functional.html) | Functional routing and handler programming model |
-| [WebSocket](https://docs.spring.io/spring-framework/reference/web/webflux-websocket.html) | Reactive full-duplex WebSocket support |
-| [RSocket](https://docs.spring.io/spring-framework/reference/rsocket.html) | Reactive binary protocol integration |
-| [Reactor Core](https://projectreactor.io/) | Project Reactor Mono/Flux publisher types |
-| [HTTP Service Client](https://docs.spring.io/spring-framework/reference/integration/rest-clients.html#rest-http-interface) | Declarative @HttpExchange client interfaces |
-| [Testing / WebTestClient](https://docs.spring.io/spring-framework/reference/testing/webtestclient.html) | WebTestClient for reactive integration testing |
+Everything profiled for Spring WebFlux is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/webflux/](https://apis.io/providers/webflux/)** — or go straight to one of the APIs or properties below.
 
-## Artifacts
+### APIs (8)
 
-### AsyncAPI Specifications
-- [webflux-websocket-asyncapi.yml](asyncapi/webflux-websocket-asyncapi.yml) — WebSocket communication channels and STOMP messaging
+- [Spring WebFlux Core](https://apis.io/apis/webflux/spring-webflux-core/) — Reactive web framework providing annotated controllers, functional endpoints, dispatcher handler, and the full reactive request/response processing…
+- [Spring WebFlux WebClient](https://apis.io/apis/webflux/spring-webflux-webclient/) — Reactive, non-blocking HTTP client for consuming REST services and other APIs. Supports builder-based configuration, request/response filters, error…
+- [Spring WebFlux Router Functions](https://apis.io/apis/webflux/spring-webflux-router-functions/) — Functional programming model for routing and request handling in WebFlux. RouterFunction and HandlerFunction provide a lightweight, lambda-based alternative…
+- [Spring WebFlux WebSocket](https://apis.io/apis/webflux/spring-webflux-websocket/) — Reactive WebSocket support for full-duplex, bidirectional communication in WebFlux applications. Provides WebSocketHandler, WebSocketSession, and…
+- [Spring WebFlux RSocket](https://apis.io/apis/webflux/spring-webflux-rsocket/) — Integration with RSocket binary protocol for reactive, message-driven communication between microservices. Supports request-response, request-stream,…
+- [Reactor Core](https://apis.io/apis/webflux/reactor-core/) — Project Reactor is the foundational reactive library powering Spring WebFlux. Provides Mono (0-1 element) and Flux (0-N element) publisher types…
+- [Spring WebFlux HTTP Service Client](https://apis.io/apis/webflux/spring-webflux-http-service-client/) — Declarative HTTP service interface client allowing annotation-based HTTP client definitions with @HttpExchange. Simplifies HTTP client creation with…
+- [Spring WebFlux Testing](https://apis.io/apis/webflux/spring-webflux-testing/) — Testing support for WebFlux applications including WebTestClient for integration testing of server endpoints, controller tests, and end-to-end testing with…
 
-### JSON Schemas
-- [webflux-webclient-request-schema.json](json-schema/webflux-webclient-request-schema.json) — WebClient HTTP request configuration
-- [webflux-webclient-response-schema.json](json-schema/webflux-webclient-response-schema.json) — WebClient HTTP response
-- [webflux-router-function-schema.json](json-schema/webflux-router-function-schema.json) — RouterFunction route configuration
+### Published properties
 
-### JSON Structures
-- [webflux-webclient-request-structure.json](json-structure/webflux-webclient-request-structure.json) — WebClient request field documentation
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### JSON-LD Contexts
-- [webflux-context.jsonld](json-ld/webflux-context.jsonld) — Linked data context for WebFlux concepts
+#### AsyncAPI (1)
 
-### Examples
-- [webflux-webclient-get-example.json](examples/webflux-webclient-get-example.json) — WebClient GET request example
-- [webflux-webclient-post-example.json](examples/webflux-webclient-post-example.json) — WebClient POST request example
+Event-driven and webhook contracts.
 
-### Vocabulary
-- [webflux-vocabulary.yml](vocabulary/webflux-vocabulary.yml) — Spring WebFlux terminology and concepts
+- [Spring WebFlux WebSocket API](https://apis.io/asyncapis/webflux/webflux-websocket-asyncapi/)
 
-## Key Concepts
+#### Event channels (2)
 
-- **Reactive Programming** — Non-blocking I/O with Reactive Streams backpressure
-- **Mono / Flux** — Project Reactor publisher types for 0-1 and 0-N async values
-- **WebClient** — Reactive replacement for RestTemplate
-- **Functional Endpoints** — RouterFunction + HandlerFunction as alternative to @Controller
-- **Server-Sent Events** — Streaming push with Flux<ServerSentEvent>
-- **WebSocket** — Full-duplex reactive WebSocket sessions
-- **RSocket** — Reactive binary protocol for microservice communication
+Individual events and webhooks the provider emits.
 
-## Use Cases
+- [/stomp](https://apis.io/channels/webflux/stomp/)
+- [/ws](https://apis.io/channels/webflux/ws/)
 
-- Reactive REST APIs handling high concurrency
-- Real-time streaming with Server-Sent Events
-- WebSocket-based chat and collaboration apps
-- Microservice communication with reactive HTTP clients
-- Non-blocking data pipelines with reactive databases (R2DBC)
+#### JSON Schema (3)
 
-## Common Properties
+The data models the API reads and writes.
 
-- [Blog](https://spring.io/blog/category/engineering)
+- [Spring WebFlux Router Function Configuration](https://apis.io/schemas/webflux/webflux-router-function/)
+- [Spring WebFlux WebClient Request](https://apis.io/schemas/webflux/webflux-webclient-request/)
+- [Spring WebFlux WebClient Response](https://apis.io/schemas/webflux/webflux-webclient-response/)
+
+#### JSON Structure (1)
+
+Data models expressed in JSON Structure.
+
+- [Webflux Webclient Request Structure](https://apis.io/json-structure/webflux/webflux-webclient-request-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Webflux Context](https://apis.io/jsonld/webflux/webflux-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Spring WebFlux Vocabulary](https://apis.io/vocabularies/webflux/webflux-vocabulary/)
+
+#### Examples (2)
+
+Example requests and responses.
+
+- [Webflux Webclient Get Example](https://apis.io/examples/webflux/webflux-webclient-get-example/)
+- [Webflux Webclient Post Example](https://apis.io/examples/webflux/webflux-webclient-post-example/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Spring WebFlux — asyncapi rules](https://apis.io/rules/webflux/webflux-asyncapi-spectral-rules/)
+- [Spring WebFlux — jsonschema rules](https://apis.io/rules/webflux/webflux-jsonschema-spectral-rules/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Webflux Plans Pricing](https://apis.io/plans/webflux/webflux-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Webflux Rate Limits](https://apis.io/rate-limits/webflux/webflux-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Webflux Finops](https://apis.io/finops/webflux/webflux-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Support](https://spring.io/support)
-- [Community](https://spring.io/community)
-- [Stack Overflow](https://stackoverflow.com/questions/tagged/spring-webflux)
-- [GitHub Organization](https://github.com/spring-projects)
-- [Twitter](https://twitter.com/springcentral)
-- [YouTube](https://www.youtube.com/user/SpringSourceDev)
-- [Maven Central](https://mvnrepository.com/artifact/org.springframework/spring-webflux)
-- [Releases](https://github.com/spring-projects/spring-framework/releases)
+- [Changelog](https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-Versions)
+- [Blog](https://spring.io/blog/category/engineering)
+- [GitHub](https://github.com/spring-projects)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Unrated** — no public website could be reached for this company, so there was almost nothing to measure and nothing a reader could check.
+
+This is not a score of zero. No rating is published for this company. If that is wrong because something public exists that we missed, say so on this repository or email [info@apievangelist.com](mailto:info@apievangelist.com) and it will be re-run — free, and no justification needed.
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Spring WebFlux: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/webflux/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
